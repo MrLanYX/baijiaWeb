@@ -14,7 +14,7 @@
         使用默认账户
         name:"admin", password: "admin" 
         可登入进入(并非ajax请求验证)
-        ![登录页](readme/sign.png)
+        ![登录页](sign.png)
     - 首页
         提供搜索、推荐、最新活动
         ![首页](readme/index1.png) ![首页](readme/index2.png)
