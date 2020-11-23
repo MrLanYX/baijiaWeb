@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+        // // 确定rem的值
+        // document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        // window.onresize = function () {
+        //     document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        // }
+        // 判断当前设备是否移动端
+        //获取屏幕尺寸，判断PC端或移动端
+        if (/phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            //如果是移动端，不执行；否则，跳转到PC端对应的页面
+            window.location.href = 'index.html';
+        } else {
+            // window.location.href = 'indexpc.html';
+        }
+    </script>
+    <!-- 引入element UI样式 -->
+    <link rel="stylesheet" href="css/element-index.css">
+    <!-- 导入自己的css样式 -->
+    <link rel="stylesheet" href="css/indexpc.css">
+
+    <!-- 引入Vue库 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入element UI js库-->
+    <script src="js/element-index.js"></script>
+    <!-- 导入自己的js -->
+    <script src="js/indexpc.js"></script>
+
+</head>
+
+<body>
+    <div id="main">
+
+        <div class="top-adv" v-if="topAdv">
+            <div class="container">
+                <a href="javascript:void(0)">
+                    <img src="img/pc-adv0.png" alt="">
+                </a>
+                <span @click="topAdvFlag"><i class="el-icon-close"></i></span>
+            </div>
+        </div>
+
+        <div class="top-nav" :class="{fixed:!topAdv}">
+            <div class="container">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳商城</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">企业团购</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">资质证照</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">协议规则</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">下载APP</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">智能生活</a>
+                    </li>
+                    <li class="fl last">
+                        <a href="javascript:void(0)">加入我们</a>
+                    </li>
+                    <li class="fr last">
+                        <a href="javascript:void(0)">消息通知</a>
+                    </li>
+                    <li class="fr">
+                        <a href="javascript:void(0)">注册</a>
+                    </li>
+                    <li class="fr">
+                        <a href="javascript:void(0)">登入</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="classifier container">
+            <div class="logo fl">
+                <a href="javascript:void(0)">
+                    <img src="img/logo-name.png" alt="">
+                </a>
+            </div>
+            <div class="active fl">
+                <a href="javascript:void(0)"></a>
+            </div>
+            <div class="class fl">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <a href="javascript:void(0)">秒杀活动</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">优惠卷</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳会员</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳家电</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳超市</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳生鲜</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search fr">
+                <el-input placeholder="请输入内容" v-model="selects">
+                    <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+            </div>
+        </div>
+
+        <div class="banner container">
+            <el-carousel height="400px">
+                <el-carousel-item v-for="item in 6">
+                    <a href="javascript:void(0)">
+                        <img :src="'img/pc-banner'+item+'.png'" alt="">
+                    </a>
+                </el-carousel-item>
+            </el-carousel>
+            <div class="left-nav">
+                <ul class="clearfix">
+                    <li v-for="(item,index) in nav" :style="navLiHeight" @mouseenter="showClass(index)"
+                        @mouseleave="notShowClass(index)">
+                        <a href="javascript:void(0)">{{item.uname}}</a>
+                        <div class="classshow" v-show="nav[index].flag">
+                            <div class="fl" v-for="i in 20">
+                                <img src="img/shop14.jpg" alt="">
+                                <span>{{item.uname}} {{i}}</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="activity container">
+            <div class="act-a fl">
+                <div class="fl" v-for="item in 6">
+                    <div>
+                        <img :src="'img/spirit'+item+'.png'" alt="">
+                        <p>{{nav[item].uname}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="act-b fl" v-for="item in 3">
+                <el-card shadow="hover">
+                    <a href="javascript:void(0)"><img :src="'img/pc-act'+item+'.png'" alt=""></a>
+                </el-card>
+            </div>
+        </div>
+
+        <div class="time container">
+            <div class="time-top">
+                百佳秒杀
+            </div>
+            <div class="time-down fl clearfix">
+                <div class="time-card fl">
+                    <p>00:00场</p>
+                    <p>距离结束还有</p>
+                    <p><span>00</span>:<span>00</span>:<span>00</span></p>
+                </div>
+            </div>
+            <div class="time-shop fl">
+                <el-carousel :autoplay="false" indicator-position="none" arrow="always">
+                    <el-carousel-item v-for="a in 3">
+                        <div class="time-card fl" v-for="b in 4">
+                            <a href="javascript:void(0)">
+                                <img :src="miaoShaUrl(a,b).url" alt="">
+                                <p>{{miaoShaUrl(a,b).uname}}</p>
+                                <p>{{miaoShaUrl(a,b).style}}</p>
+                                <div>
+                                    <div>
+                                        <p>¥:{{miaoShaUrl(a,b).moneyless}}</p>
+                                    </div>
+                                    <div></div>
+                                    <p class="fr">¥:{{miaoShaUrl(a,b).money}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </el-carousel-item>
+                </el-carousel>
+            </div>
+        </div>
+
+        <div class="middle-adv container">
+            <a href="javascript:void(0)">
+                <img src="img/pc-adv1.jpg" alt="">
+            </a>
+        </div>
+
+        <!-- 开始循环分类 -->
+        <div class="container" v-for="i in 3">
+            <div class="class-xxx">
+                <div class="class-xxx-top">
+                    {{class1name}}
+                    <div class="fr">
+                        更多
+                        <i class="el-icon-d-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="shop-max card fl">
+                    <a href="javascript:void(0)">
+                        <img src="img/shopmax1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="shop-min fl">
+                    <div class="card fl" v-for="item in class1">
+                        <a href="shop.html?id=1001">
+                            <img :src="item.url" alt="">
+                            <p>{{item.money}}元起</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle-adv">
+                <a href="javascript:void(0)">
+                    <img :src="'img/pc-adv'+i+'.jpg'" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="heard">
+            <div class="heard-li">
+                <div class="container service-ul">
+                    <ul class="clearfix">
+                        <li class="fl">预约服务</li>
+                        <li class="fl">7天无理由退货</li>
+                        <li class="fl">15天免费换货</li>
+                        <li class="fl">满99享受包邮</li>
+                        <li class="fl">百家售后网点</li>
+                    </ul>
+                </div>
+                <div class="clearfix container fuwu">
+                    <div class="fl fuwu-left">
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="fl fuwu-right">
+                        <p>000-000-0000</p>
+                        <p>8:00-18:00（仅收市话费）</p>
+                        <p><i class="el-icon-chat-dot-square"></i>人工客服</p>
+                        <p>关注百佳:<i class="el-icon-message-solid"></i><i class="el-icon-s-promotion"></i></p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="heard-bottom">
+                <div class="container">
+                    000
+                </div>
+            </div> -->
+        </div>
+
+        <div class="right-nav" :class="{fixed:!topAdv}">
+            <div>
+                <div>
+                    <p><i class="el-icon-mobile-phone"></i></p>
+                    <p>下载APP</p>
+                    <div class="erweima">
+                        <div></div>
+                        <img src="img/show.png" alt="">
+                        <p>扫一扫<br>下载百佳应用</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-user"></i></p>
+                    <p>个人中心</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-chat-dot-round"></i></p>
+                    <p>售后服务</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-service"></i></p>
+                    <p>人工客服</p>
+                </div>
+            </div>
+            <div @click="shopCart = true">
+                <div>
+                    <p><i class="el-icon-shopping-cart-full"></i></p>
+                    <p>购物车</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-upload2"></i></p>
+                    <p>回到顶部</p>
+                </div>
+            </div>
+        </div>
+
+        <el-drawer title="我是标题" :visible.sync="shopCart" :direction="'ltr'" :with-header="false">
+            <div class="shop-main-dan" v-for="(item,index) in shops">
+                <div class="shop-main-button">
+                    <span :class="{open:item.select}" @click="select(index)"><i class="el-icon-check"></i></span>
+                </div>
+                <div class="shop-main-img">
+                    <img :src="item.url" alt="">
+                </div>
+                <div class="shop-main-p">
+                    <p>{{item.uname}}</p>
+                    <p>{{item.style}}</p>
+                    <div class="shop-main-money">
+                        <span :class="{shanchu:item.moneyless}">￥:{{item.money}}</span>
+                        <span v-if="item.moneyless">￥:{{item.moneyless}}</span>
+                    </div>
+                </div>
+                <div class="shop-main-num">
+                    <p class="reduce" @click="reduceShop(index)">-</p>
+                    <p class="num">{{item.number}}</p>
+                    <p class="add" @click="addShop(index)">+</p>
+                </div>
+            </div>
+
+            <div class="shop-buttom">
+                <div class="fl" :class="{open:allSelectState}" @click="allSelect"><i class="el-icon-check"></i>
+                </div>
+                <div class="fl">{{selectState}}</div>
+                <div class="fl">合计：</div>
+                <div class="fl">{{ addAllMoney }}</div>
+                <div class="shop-buttom-set">
+                    <p>结算</p>
+                </div>
+            </div>
+        </el-drawer>
+    </div>
+</body>
+
+</html>

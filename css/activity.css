@@ -1,0 +1,70 @@
+/* 初始化样式 */
+@import 'normalize.css';
+/* 引入默认样式 */
+@import 'base.css';
+
+body{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.activity{
+    height: 100vh;
+    background: #fff url(../img/activity-bg.png) no-repeat;
+    background-size: auto 100vh;
+    background-position: center;
+}
+.activity p{
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.6rem;
+    line-height: 2;
+}
+.activity .zh{
+    font-family: NotoSansHans-Bold;
+	font-size: 2.61rem;
+	line-height: 1.44rem;
+    letter-spacing: 0.07rem;
+    margin-top: 8vh;
+}
+.el-page-header__content{
+    color: #fff;
+}
+.activity .en{
+    font-family: NotoSansHans-Bold;
+	font-size: 3.73vw;
+	line-height: 7.19vw;
+	letter-spacing: 0.45vw;
+    margin-top: 10px;
+}
+.activity button{
+    width: 10.67rem;
+	height: 2.13rem;
+	background-image: linear-gradient(90deg, #ffd632 0%, #ffd238 100%);
+    border-radius: 0.27rem;
+    border: 0;
+    outline: 0;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.85rem;
+    letter-spacing: 0.3rem;
+    color: #fff;
+    margin-top: 40vh;
+    margin-left: 5rem;
+}
+.activity .rule{
+    font-family: NotoSansHans-Regular;
+    font-size: 0.85rem;
+    margin: 1rem auto;
+}
+.header{
+    width: 100%;
+    height: 3.36rem;
+    padding-top: 1.06rem;
+    background: linear-gradient(90deg,#ff6251,#ff9d55);
+    z-index: 9;
+    display: flex;
+}
+.el-page-header{
+    align-self: center;
+}

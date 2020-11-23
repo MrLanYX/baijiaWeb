@@ -1,0 +1,39 @@
+/* 去除基础样式 */
+*{
+    margin: 0;
+    padding: 0;
+    /* padding和border不会撑开盒子 */
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+input{  
+	background:none;  
+	outline:none;  
+	border:none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix{
+    zoom: 1;
+}

@@ -1,0 +1,247 @@
+/* 初始化样式 */
+@import 'normalize.css';
+/* 引入默认样式 */
+@import 'base.css';
+
+body{
+    background-color: #fff;
+}
+a{
+    color: #999;
+    font-size: 14px;
+    margin-top: 52px;
+}
+a i{
+    padding: 0 4px;
+}
+a:hover{
+    color: red;
+    text-decoration: underline;
+}
+.w{
+    width: 990px;
+    margin: 0 auto;
+}
+
+
+.logo{
+    height: 60px;
+    margin: 10px 0;
+}
+.logo span{
+    font-size: 24px;
+    font-weight: 540;
+    color: gray;
+    margin-left: 10px;
+}
+.logo img{
+    height: 100%;
+}
+.warning{
+    height: 38px;
+    line-height: 38px;
+    font-size: 12px;
+    background: #fff8f0;
+    text-align: center;
+    color: #999;
+}
+.banner{
+    height: 475px;
+    background: #963af7 url(../img/pc-sign-bg.jpg) no-repeat;
+    background-position: center;
+}
+.sign{
+    width: 346px;
+    height: 426px;
+    background: #fff;
+    margin-top: 15px;
+}
+
+.el-row {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.el-col {
+    height: 55px;
+    position: relative;
+}
+.el-col a{
+    width: 99%;
+    font-size: 18px;
+    text-align: center;
+    position: absolute;
+    top: 18px;
+    color: 666;
+    font-weight: 500;
+    margin: 0;
+}
+.el-col a:hover{
+    text-decoration: none;
+    color: #E4393C;
+    font-weight: 650;
+}
+.signplay{
+    text-decoration: none;
+    color: #E4393C;
+    font-weight: 650 !important;
+}
+.el-row .el-col:nth-child(1) a{
+    border-right: 1px solid #f4f4f4;
+}
+
+.playa{
+    height: 250px;
+}
+.qrcode{
+    position: relative;
+    height: 163px;
+}
+.qrcode-img{
+    width: 163px;
+    height: 163px;
+    background: url(../img/show.png) no-repeat;
+    background-size: 143px;
+    background-position: center;
+    border: 1px solid  #f4f4f4;
+    position: absolute;
+    left: calc(50% - 81.5px);
+}
+.qrcode-img div{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.qrcode-img div p{
+    height: 80px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: 530;
+    color: #fff;
+}
+.qrcode-img div .el-button{
+    margin: 0 46px;
+}
+.qrcode-phone{
+    position: absolute;
+    left: 200px;
+}
+.qrcode-phone img{
+    height: 163px;
+}
+
+/* 添加二维码动画 */
+.qrcode .qrcode-img{
+    /* x=0代表移回原位置 */
+    transform: translateX(0);
+    /* 移回也需要时间过渡 */
+    transition: transform .3s ;
+}
+.qrcode:hover .qrcode-img{
+    /* 鼠标移入二维码区域触发 */
+    transform: translateX(-70px);
+    /* 移回也需要时间过渡 */
+    transition: transform .3s ;
+}
+.qrcode .qrcode-phone{
+    opacity: 0;
+    transition: opacity .5s ;
+}
+.qrcode:hover .qrcode-phone{
+    opacity: 1;
+    transition: opacity .5s ;
+}
+
+
+
+.open{
+    text-align: center;
+    margin: 20px auto;
+}
+.open p{
+    font-size: 12px;
+    color: #999;
+}
+.open p a{
+    font-size: 12px;
+    color:  #E4393C;
+}
+
+.coagent ul{
+    width: 251px;
+    margin: 0 auto;
+}
+.coagent ul li{
+    margin: 0 10px;
+    color: gray;
+}
+
+.playb{
+    height: 250px;
+}
+form{
+    width: 300px;
+    margin: 0 auto;
+}
+.el-input{
+    margin-bottom: 20px;
+}
+.el-input:nth-child(4) input{
+    background: #E4393C;
+    color: #fff;
+}
+form a{
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.tripartite{
+    font-size: 14px !important;
+    padding: 10px 0;
+    border-top: 1px solid#f4f4f4;
+    margin-top: 10px;
+}
+.tripartite ul li{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 40px;
+}
+.tripartite ul li:nth-child(1){
+    background: url(../img/QQ.png) no-repeat;
+    background-size: 24px;
+    background-position: 10px center;
+    border-right: 1px solid #f4f4f4;
+}
+.tripartite ul li:nth-child(2){
+    background: url(../img/微信.png) no-repeat;
+    background-size: 24px;
+    background-position: 10px center;
+}
+.tripartite span{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.tripartite span a{
+    color:  #E4393C !important;
+}
+
+.bottom{
+    font-size: 12px;
+    padding-top: 10px;
+    text-align: center;
+}
+.bottom ul{
+    width: 870px;
+    margin: 0 auto;
+}
+.bottom ul li{
+    float: left;
+    width: 70px;
+}
+.bottom ul li.x{
+    width: 10px;
+}
+.bottom p{
+    margin-top: 10px;
+}

@@ -1,0 +1,954 @@
+/* 初始化样式 */
+
+@import 'normalize.css';
+/* 引入默认样式 */
+
+@import 'base.css';
+body {
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+#main {
+    width: 100%;
+}
+
+#main>div {
+    height: calc(100vh - 2.61rem);
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.adv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 10.06rem;
+    background: url(../img/adv.png) no-repeat;
+    background-size: 100%;
+    z-index: 10;
+}
+
+.adv p {
+    text-align: center;
+    font-family: NotoSansHans-Bold;
+    color: #ffffff;
+}
+
+.adv p.zh {
+    font-size: 1.5rem;
+    margin-top: 4.2rem;
+}
+
+.adv p.en {
+    font-size: 0.5rem;
+    margin-top: 0.6rem;
+}
+
+.adv a {
+    float: right;
+    display: block;
+    height: 1rem;
+    width: 2.2rem;
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    margin-right: 0.3rem;
+}
+
+.search {
+    position: fixed;
+    width: 100%;
+    height: 3.36rem;
+    background: #ff6251;
+    padding-top: 1.06rem;
+    z-index: 9;
+}
+
+.search img {
+    position: absolute;
+    top: 1.46rem;
+    left: 0.4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.el-input {
+    position: absolute;
+    top: 1.46rem;
+    left: 2.3rem;
+    height: 1.5rem;
+    width: 14rem;
+}
+
+.el-input__inner {
+    height: 100%;
+    border-radius: 0.75rem;
+}
+
+.el-input__suffix {
+    top: -0.13rem;
+}
+
+.search>span {
+    display: block;
+    position: absolute;
+    top: 1.46rem;
+    left: 17rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.banner {
+    width: 20rem;
+    height: 6.7rem;
+}
+
+.banner-top {
+    height: 3.36rem;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner .swiper-container .swiper-pagination-bullet-active {
+    width: 20px;
+    background-color: #E4393C;
+    border-radius: 4px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.fclass {
+    width: 100%;
+    height: 10rem;
+    background-color: #fff;
+}
+
+.fclass-unit {
+    width: 100%;
+    height: 10rem;
+}
+
+.fclass-unit .el-row {
+    width: 18rem;
+    height: 30%;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+}
+
+.fclass-unit .el-col img {
+    width: 2.5rem;
+}
+
+.fclass-unit .el-col p {
+    font-size: 0.65rem;
+    color: #767676;
+    margin-top: -0.2rem;
+}
+
+.fclass .swiper-container .swiper-pagination-bullet-active {
+    background-color: #E4393C;
+}
+
+.recommend {
+    position: relative;
+    width: 20rem;
+    height: 2.13rem;
+    background-color: #ffffff;
+    margin: 0.2rem 0;
+}
+
+.recommend span:nth-child(1) {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.6rem;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.83rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff6251, #ff9d55);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.recommend span:nth-child(2) {
+    position: absolute;
+    top: 0.75rem;
+    left: 4.4rem;
+    font-size: 0.63rem;
+    font-family: NotoSansHans-Regular;
+    color: #3f3f3f;
+}
+
+.recommend i {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.6rem;
+    font-size: 1.5rem;
+    color: #d6d7dc;
+}
+
+.commodity {
+    padding: 0.5rem 0.6rem;
+    background-color: #fff;
+}
+
+.hot {
+    border: 1px solid #ccc;
+}
+
+.hot .el-col-24 {
+    position: relative;
+}
+
+.hot .el-col-24 img {
+    display: block;
+    width: 100%;
+}
+
+.hot .el-col-24 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 3.79rem;
+    height: 1.23rem;
+    background-image: linear-gradient(90deg, #ff6251 0%, #ff9d55 100%);
+    border-radius: 0.16rem 0.59rem 0.59rem 0rem;
+    line-height: 1.23rem;
+    font-size: 0.6rem;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.hot .el-col-12 {
+    height: 5.5rem;
+}
+
+.hot .el-col-12:first-child {
+    border-right: 1px solid #ccc;
+}
+
+.hot .el-col-12 p {
+    text-indent: 10px;
+}
+
+.hot .el-col-12 p:first-child {
+    font-family: NotoSansHans-Regular;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff6251, #ff9d55);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0.5rem;
+}
+
+.hot .el-col-12 p {
+    font-size: 0.6rem;
+    font-family: NotoSansHans-Regular;
+    color: #7f8699;
+    margin-top: 0.2rem;
+}
+
+.hot .el-row:nth-child(3) {
+    margin: 0 10px;
+    height: 5.5rem;
+}
+
+.hot .el-col-6 {
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.hot .el-col-6:last-child {
+    border-right: 0;
+}
+
+.hot .el-col-6 p {
+    font-size: 0.75rem;
+    font-family: NotoSansHans-Regular;
+    margin-top: 0.5rem;
+    text-align: center;
+    color: #de2930;
+}
+
+.hot .el-col-6 p:nth-child(2) {
+    font-size: 0.6rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+    color: #7f8699;
+}
+
+.hot .el-col-6 img {
+    display: block;
+    width: 2.24rem;
+    margin: 0 auto;
+}
+
+.el-card {
+    height: 8rem;
+    margin-top: 15px;
+    font-size: 0.7rem;
+}
+.el-card__body{
+    padding: 0.5rem;
+}
+.el-card__body img{
+    width: 7rem;
+    height: 7rem;
+}
+.el-card__body div{
+    margin-left: 0.5rem;
+    width: 10rem;
+}
+.el-card__body div p:nth-child(1){
+    height: 5rem;
+}
+.el-card__body div p:nth-child(2),.el-card__body div p:nth-child(3){
+    height: 1rem;
+    font-size: 0.4rem;
+    color: #555;
+}
+.el-card__body div p:nth-child(2) span,.el-card__body div p:nth-child(3) span{
+    font-size: 0.7rem;
+    color: red;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.61rem !important;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff2') format('woff2'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    display: block;
+    font-family: "iconfont" !important;
+    font-size: 1.17rem;
+    font-style: normal;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0.32rem;
+}
+
+.bottom a {
+    color: #7f8699;
+}
+
+.bottom a p {
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+.bottom .open {
+    color: #ff6251;
+}
+
+.classification-top {
+    position: relative;
+    width: 100%;
+    height: 3.36rem;
+    background-image: linear-gradient(90deg, #ff6251, #ff9d55);
+    padding-top: 1.06rem;
+    font-size: 0.96rem;
+    font-family: NotoSansHans-Regular;
+    color: #fff;
+}
+
+.classification-top span {
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 0.7rem auto;
+}
+
+.classification-top i {
+    height: 0.96rem;
+    position: absolute;
+    bottom: 0.7rem;
+    margin: 0;
+}
+
+.classification-top i:nth-child(1) {
+    left: 10px;
+}
+
+.classification-top i:nth-child(3) {
+    bottom: 0.8rem;
+    right: 2.3rem;
+    font-size: 1.12rem;
+}
+
+.classification-top i:nth-child(4) {
+    right: 0.6rem;
+}
+
+.navigation {
+    height: calc(100vh - 5.97rem);
+    background-color: #fff;
+    font-size: 0;
+}
+
+.navigation-left {
+    display: inline-block;
+    width: 4.5rem;
+    height: 100%;
+    vertical-align: top;
+}
+
+.nav-dan {
+    height: 9.09%;
+    font-size: 0.76rem;
+    background-color: #fff;
+    display: flex;
+}
+
+.nav-dan p {
+    width: 100%;
+    text-align: center;
+    border-left: 3px solid #ffffff00;
+    border-right: 3px solid #ffffff00;
+    align-self: center;
+}
+
+.navOpen {
+    background-color: #f1f1f1;
+}
+
+.navOpen p {
+    border-left: 3px solid #ff6251;
+}
+
+.navigation-main {
+    display: inline-block;
+    width: 15.5rem;
+    height: 100%;
+    vertical-align: top;
+    background-color: #f1f1f1;
+    font-size: 16px;
+}
+
+.navigation-main>div {
+    margin-top: 0.85rem;
+    margin-left: 0.64rem;
+}
+
+.nav-tuijian-img {
+    position: relative;
+    width: 14.22rem;
+    text-align: center;
+}
+
+.nav-tuijian-img img {
+    width: 100%;
+}
+
+.nav-tuijian-img p {
+    width: 100%;
+    position: absolute;
+    color: #ffffff;
+}
+
+.nav-tuijian-img p.zh {
+    top: 25%;
+    font-family: NotoSansHans-Bold;
+    font-size: 1.12rem;
+}
+
+.nav-tuijian-img p.en {
+    top: 55%;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.53rem;
+}
+
+.nav-zhu {
+    width: 14.5rem;
+    height: 17rem;
+    background-color: #ffffff;
+    border-radius: 0.27rem;
+}
+
+.nav-zhu div {
+    float: left;
+    width: 33.3%;
+    height: 33.3%;
+}
+
+.nav-zhu div img {
+    width: 2.6rem;
+    margin-top: 1rem;
+    margin-left: 1.1rem;
+}
+
+.nav-zhu div p {
+    font-size: 0.6rem;
+    width: 100%;
+    text-align: center;
+}
+
+.shop-top {
+    width: 100%;
+    height: 3.36rem;
+    padding-top: 1.06rem;
+    background-image: linear-gradient(90deg, #ff6251, #ff9d55);
+}
+
+.shop-top div {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.8rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ff6251;
+    background-color: red;
+}
+
+.shop-top div p {
+    height: 1rem;
+    color: #fff;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 10px;
+}
+
+.shop-main {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 5.97rem);
+    background-color: #f1f1f1;
+    overflow: auto;
+}
+
+.shop-main-dan {
+    position: relative;
+    height: 7.36rem;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 0.8rem;
+}
+
+.shop-main-dan>div {
+    height: 100%;
+    float: left;
+}
+
+.shop-main-button {
+    height: 100%;
+    display: flex;
+}
+
+.shop-main-button span {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    align-self: center;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.shop-main-button span.open {
+    background: linear-gradient(90deg, #ff6251, #ff9d55);
+}
+
+.shop-main-img {
+    width: 5.76rem;
+    margin-left: 0.7rem;
+}
+
+.shop-main-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.shop-main-p {
+    position: relative;
+    width: 10rem;
+    margin-left: 0.9rem;
+}
+
+.shop-main-p p:nth-child(1) {
+    width: 100%;
+    height: 2rem;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.shop-main-p p:nth-child(2) {
+    width: 100%;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.53rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.91rem;
+    letter-spacing: 0rem;
+    color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+}
+
+.shop-main-money {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 20px;
+    font-family: NotoSansHans-Regular;
+    line-height: 20px;
+    font-size: 0.74rem;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #333333;
+}
+
+.shop-main-money span:nth-child(2) {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    color: #ff3333;
+}
+
+.shop-main-money span.shanchu {
+    text-decoration: line-through;
+}
+
+.shop-main-num {
+    position: absolute;
+    right: 0.8rem;
+    bottom: 0.8rem;
+    height: 1.5rem !important;
+}
+
+.shop-main-num p {
+    float: left;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.shop-main-num p.reduce {
+    width: 1.5rem;
+    border-radius: 4px 0 0 4px;
+}
+
+.shop-main-num p.num {
+    width: 3rem;
+    font-size: 0.8rem;
+    border: 0;
+}
+
+.shop-main-num p.add {
+    width: 1.5rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.shop-buttom {
+    position: fixed;
+    bottom: 2.61rem;
+    width: 100%;
+    height: 2.4rem;
+    background-color: #fff;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.shop-buttom div:nth-child(1) {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    align-self: center;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.shop-buttom .open {
+    background: linear-gradient(90deg, #ff6251, #ff9d55);
+}
+
+.shop-buttom div:nth-child(2) {
+    margin-left: 0.7rem;
+}
+
+.shop-buttom div:nth-child(3) {
+    margin-left: 5rem;
+}
+
+.shop-buttom-set {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2.4rem;
+    width: 4.5rem;
+    background-image: linear-gradient(90deg, #ff6251, #ff9d55);
+    display: flex;
+}
+
+.shop-buttom-set p {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    align-self: center;
+}
+
+.me {
+    position: absolute;
+    width: 100%;
+    height: 13rem;
+    background: url(../img/me-bg.png) no-repeat;
+    background-size: 100%;
+    color: #fff;
+}
+
+.me-top-setting {
+    position: absolute;
+    top: 1.65rem;
+    right: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.me-avatar {
+    position: absolute;
+    top: calc(40% - 1.7rem);
+    left: calc(50% - 1.7rem);
+}
+
+.me-avatar span {
+    width: 3.4rem;
+    height: 3.4rem;
+}
+
+.me-name {
+    position: absolute;
+    top: calc(40% + 2rem);
+    width: 100%;
+    text-align: center;
+}
+
+.me-collection {
+    width: 100%;
+    position: absolute;
+    top: calc(40% + 3.5rem);
+}
+
+.me-collection .el-col p {
+    width: 100%;
+    height: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.me-allorder {
+    position: absolute;
+    bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.vip {
+    height: 17.7rem;
+    padding: 13.35rem 3rem 0.35rem;
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.vip img {
+    width: 5.3rem;
+    height: 100%;
+}
+
+.vip div {
+    width: 8.7rem;
+    align-self: center;
+    padding-left: 0.5rem;
+}
+
+.vip div span:nth-child(1) {
+    font-family: NotoSansHans-Bold;
+    font-size: 0.8rem;
+    font-weight: normal;
+    letter-spacing: 0.04rem;
+    color: #fe5850;
+}
+
+.vip div span:nth-child(2) {
+    font-family: NotoSansHans-Bold;
+    font-size: 0.8rem;
+    font-weight: normal;
+    letter-spacing: 0.04rem;
+    color: #414141;
+}
+
+.vip div p:nth-child(3) {
+    font-family: NotoSansHans-Regular;
+    font-size: 0.59rem;
+    font-weight: normal;
+    letter-spacing: 0.03rem;
+    color: #bcbcbc;
+    margin-top: 10px;
+}
+
+.order {
+    width: 100%;
+    height: 6.4rem;
+    background-color: #fff;
+    padding: 1rem 10px;
+    margin-bottom: 10px;
+}
+
+.order>div:nth-child(1) {
+    width: 100%;
+    height: 0.85rem;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.85rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.85rem;
+}
+
+.order>div:nth-child(1) p:nth-child(1) {
+    float: left;
+    color: #333333;
+}
+
+.order>div:nth-child(1) p:nth-child(2) {
+    float: right;
+    color: #a3a3a3;
+}
+
+.order>div:nth-child(2) {
+    padding-top: 1rem;
+}
+
+.order .el-col div {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 auto;
+}
+
+.order .el-col div img {
+    width: 100%;
+    height: 100%;
+}
+
+.order .el-col div p {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #ff5757;
+    border-radius: 50%;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.55rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1rem;
+    color: #ffffff;
+}
+
+.order .el-col p {
+    width: 100%;
+    text-align: center;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.69rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.93rem;
+    color: #555555;
+}
+
+.setting div {
+    width: 100%;
+    height: 2.64rem;
+    background-color: #fff;
+    margin-bottom: 2px;
+    padding: 0 10px;
+    display: flex;
+}
+
+.setting div img {
+    width: 1rem;
+    align-self: center;
+}
+
+.setting div span {
+    display: block;
+    width: calc(100% - 20px - 1rem);
+    height: 1rem;
+    font-family: NotoSansHans-Regular;
+    font-size: 0.85rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.93rem;
+    color: #1a191a;
+    text-indent: 10px;
+    align-self: center;
+}
+
+.setting div i {
+    align-self: center;
+}

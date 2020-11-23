@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>shop</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+        // // 确定rem的值
+        // document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        // window.onresize = function () {
+        //     document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        // }
+        // 判断当前设备是否移动端
+        //获取屏幕尺寸，判断PC端或移动端
+        if (/phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            //如果是移动端，不执行；否则，跳转到PC端对应的页面
+            window.location.href = 'index.html';
+        } else {
+            // window.location.href = 'indexpc.html';
+        }
+    </script>
+    <!-- 引入element UI样式 -->
+    <link rel="stylesheet" href="css/element-index.css">
+    <!-- 导入自己的css样式 -->
+    <link rel="stylesheet" href="css/shop.css">
+
+    <!-- 引入Vue库 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入element UI js库-->
+    <script src="js/element-index.js"></script>
+    <!-- 引入axios -->
+    <script src="js/axios.min.js"></script>
+    <!-- 导入自己的js -->
+    <script src="js/shop.js"></script>
+
+</head>
+
+<body>
+    <div id="main">
+
+        <div class="top-adv" v-if="topAdv">
+            <div class="container">
+                <a href="javascript:void(0)">
+                    <img src="img/pc-adv0.png" alt="">
+                </a>
+                <span @click="topAdvFlag"><i class="el-icon-close"></i></span>
+            </div>
+        </div>
+
+        <div class="top-nav" :class="{fixed:!topAdv}">
+            <div class="container">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳商城</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">企业团购</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">资质证照</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">协议规则</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">下载APP</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">智能生活</a>
+                    </li>
+                    <li class="fl last">
+                        <a href="javascript:void(0)">加入我们</a>
+                    </li>
+                    <li class="fr last">
+                        <a href="javascript:void(0)">消息通知</a>
+                    </li>
+                    <li class="fr">
+                        <a href="javascript:void(0)">注册</a>
+                    </li>
+                    <li class="fr">
+                        <a href="javascript:void(0)">登入</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="classifier container">
+            <div class="logo fl">
+                <a href="javascript:void(0)">
+                    <img src="img/logo-name.png" alt="">
+                </a>
+            </div>
+            <div class="active fl">
+                <a href="javascript:void(0)"></a>
+            </div>
+            <div class="class fl">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <a href="javascript:void(0)">秒杀活动</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">优惠卷</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳会员</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳家电</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳超市</a>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0)">百佳生鲜</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search fr">
+                <el-input placeholder="请输入内容" v-model="selects">
+                    <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+            </div>
+        </div>
+
+        <div class="shop-name">
+            <div class="container">
+                {{shop.uname}}
+            </div>
+        </div>
+
+        <div class="show">
+            <div class="container">
+                <el-row :gutter="20">
+                    <el-col :span="12">
+                        <el-carousel indicator-position="outside" arrow="always">
+                            <el-carousel-item v-for="item in 4">
+                                <img :src="shop.url" alt="">
+                            </el-carousel-item>
+                        </el-carousel>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="product-con">
+                            <h2>{{shop.uname}}</h2>
+                            <p class="shop-introduce">{{shop.describe}}</p>
+                            <p class="shop-money">价格:{{shop.money}}</p>
+                            <div class="xian"></div>
+                            <div class="shop-region">
+                                <i class="el-icon-location-information"></i>
+                                地区
+                            </div>
+                            <h3>选择{{shop.style.styleName}}</h3>
+                            <div class="shop-style clearfix">
+                                <div v-for="item in shop.style.style">
+                                    {{item}}
+                                </div>
+                            </div>
+                            <el-row :gutter="20">
+                                <el-col :span="12">
+                                    <div class="shop-buy">
+                                        立即购买
+                                    </div>
+                                </el-col>
+                                <el-col :span="12">
+                                    <div class="shop-add">
+                                        加入购物车
+                                    </div>
+                                </el-col>
+                            </el-row>
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+            <div class="shop-img">
+                <div class="container">
+                    <img src="img/details1.jpg" alt="">
+                    <img src="img/details2.jpg" alt="">
+                    <img src="img/details3.jpg" alt="">
+                    <h2>关于价格</h2>
+                    <div class="aboutmoney">
+                        <span>划线价:</span>商品展示的划横线价格为参考价,该价格可能是品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价(如厂商指导价、建议零售价等)或该商品在百佳商城百佳有品/天猫百佳官方旗舰店曾经展示过的销售价;由于地区、时间的差异性和市场行情波动,品牌专柜标价、商品吊牌价等可能会与您购物时展示的不一致,该价格仅供您参考。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right-nav" :class="{fixed:!topAdv}">
+            <div>
+                <div>
+                    <p><i class="el-icon-mobile-phone"></i></p>
+                    <p>下载APP</p>
+                    <div class="erweima">
+                        <div></div>
+                        <img src="img/show.png" alt="">
+                        <p>扫一扫<br>下载百佳应用</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-user"></i></p>
+                    <p>个人中心</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-chat-dot-round"></i></p>
+                    <p>售后服务</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-service"></i></p>
+                    <p>人工客服</p>
+                </div>
+            </div>
+            <div @click="shopCart = true">
+                <div>
+                    <p><i class="el-icon-shopping-cart-full"></i></p>
+                    <p>购物车</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><i class="el-icon-upload2"></i></p>
+                    <p>回到顶部</p>
+                </div>
+            </div>
+        </div>
+
+        <el-drawer title="我是标题" :visible.sync="shopCart" :direction="'ltr'" :with-header="false">
+            <div class="shop-main-dan" v-for="(item,index) in shops">
+                <div class="shop-main-button">
+                    <span :class="{open:item.select}" @click="select(index)"><i class="el-icon-check"></i></span>
+                </div>
+                <div class="shop-main-img">
+                    <img :src="item.url" alt="">
+                </div>
+                <div class="shop-main-p">
+                    <p>{{item.uname}}</p>
+                    <p>{{item.style}}</p>
+                    <div class="shop-main-money">
+                        <span :class="{shanchu:item.moneyless}">￥:{{item.money}}</span>
+                        <span v-if="item.moneyless">￥:{{item.moneyless}}</span>
+                    </div>
+                </div>
+                <div class="shop-main-num">
+                    <p class="reduce" @click="reduceShop(index)">-</p>
+                    <p class="num">{{item.number}}</p>
+                    <p class="add" @click="addShop(index)">+</p>
+                </div>
+            </div>
+
+            <div class="shop-buttom">
+                <div class="fl" :class="{open:allSelectState}" @click="allSelect"><i class="el-icon-check"></i>
+                </div>
+                <div class="fl">{{selectState}}</div>
+                <div class="fl">合计：</div>
+                <div class="fl">{{ addAllMoney }}</div>
+                <div class="shop-buttom-set">
+                    <p>结算</p>
+                </div>
+            </div>
+        </el-drawer>
+        <div class="heard">
+            <div class="heard-li">
+                <div class="container service-ul">
+                    <ul class="clearfix">
+                        <li class="fl">预约服务</li>
+                        <li class="fl">7天无理由退货</li>
+                        <li class="fl">15天免费换货</li>
+                        <li class="fl">满99享受包邮</li>
+                        <li class="fl">百家售后网点</li>
+                    </ul>
+                </div>
+                <div class="clearfix container fuwu">
+                    <div class="fl fuwu-left">
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>帮助中心</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>服务支持</p>
+                                </a></li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                            <li><a href="javascript:void(0)">
+                                    <p>关于百佳</p>
+                                </a> </li>
+                        </ul>
+                        <ul class="clearfix fl">
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                            <li><a href="javascript:void(0)">
+                                    <p>特色服务</p>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="fl fuwu-right">
+                        <p>000-000-0000</p>
+                        <p>8:00-18:00（仅收市话费）</p>
+                        <p><i class="el-icon-chat-dot-square"></i>人工客服</p>
+                        <p>关注百佳:<i class="el-icon-message-solid"></i><i class="el-icon-s-promotion"></i></p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="heard-bottom">
+                <div class="container">
+                    000
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</body>
+
+</html>

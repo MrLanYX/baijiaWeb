@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登入</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+        // 确定rem的值
+        document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        window.onresize = function () {
+            document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        }
+        // 判断当前设备是否移动端
+        //获取屏幕尺寸
+        if (/phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            //如果是移动端，不执行；否则，跳转到PC端对应的页面
+            // window.location.href = 'sign.html';
+        } else {
+            window.location.href = 'signpc.html';
+        }
+    </script>
+    <!-- 引入Vue库 -->
+    <script src="js/vue.js"></script>
+    <!-- 引入自己的js代码 -->
+    <script src="js/sign.js"></script>
+    <!-- 导入自己的css代码 -->
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+
+<body>
+    <div id="main">
+        <div class="bg">
+            <img src="img/LOGO.png" alt="LOGO" title="电商logo">
+        </div>
+        <div class="sign">
+            <form action="index.html" @submit="verification">
+                <input type="text" class="text" placeholder="用户名/账号/手机号" name="uname" v-model="uname">
+                <input type="password" class="password" placeholder="请输入您的密码" name="password" v-model="password">
+                <input type="submit" class="submit">
+            </form>
+            <div class=" clearfix">
+                <span class="fl"><a href="javascript:void(0);">注册账号</a></span>
+                <span class="fr"><a href="javascript:void(0);">忘记密码</a></span>
+            </div>
+            <div class="hr clearfix">
+                <div class="fl"></div>
+                <span>第三方账号登录</span>
+                <div class="fr"></div>
+            </div>
+            <div class="other-sgin">
+                <img src="img/微博.png" alt="">
+                <img src="img/QQ.png" alt="">
+                <img src="img/微信.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

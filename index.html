@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+        // 确定rem的值
+        document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        window.onresize = function () {
+            document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        }
+        // 判断当前设备是否移动端
+        //获取屏幕尺寸
+        if (/phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            //如果是移动端，不执行；否则，跳转到PC端对应的页面
+            // window.location.href = 'sign.html';
+        } else {
+            window.location.href = 'indexpc.html';
+        }
+    </script>
+    <!-- 引入element UI样式 -->
+    <link rel="stylesheet" href="css/element-index.css">
+    <!-- 导入swiper的css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- 导入自己的css样式 -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- 引入Vue库 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入element UI js库-->
+    <script src="js/element-index.js"></script>
+    <!-- 导入swiper的js库 -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- 导入自己的js -->
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div id="main">
+
+
+
+        <div v-show="bottom[0].flag">
+            <div class="adv" v-if="adv.flag" @click="advGoBack">
+                <p class="zh">夏季促销各品类立减20</p>
+                <p class="en">Summer promotion, each category is reduced by 20</p>
+                <a href="javascript:void(0);" @click="advNotShow">{{adv.data}}S <i class="el-icon-close"></i></a>
+            </div>
+
+            <div class="search">
+                <img src="img/logo.png" alt="">
+                <el-input placeholder="请输入内容" v-model="search" clearable>
+                </el-input>
+                <span>搜索</span>
+            </div>
+
+            <div class="banner-top"></div>
+            <div class="banner">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="o in 6"><img :src="'img/banner'+o+'.png'" alt=""></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="fclass">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="o in 3">
+                            <div class="fclass-unit">
+                                <el-row>
+                                    <el-col :span="6"><img src="img/class1.png" alt="">
+                                        <p>美食</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class2.png" alt="">
+                                        <p>家居生活</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class3.png" alt="">
+                                        <p>服饰箱包</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class4.png" alt="">
+                                        <p>电影/演出</p>
+                                    </el-col>
+                                </el-row>
+                                <el-row>
+                                    <el-col :span="6"><img src="img/class5.png" alt="">
+                                        <p>购物商城</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class6.png" alt="">
+                                        <p>零食饮料</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class7.png" alt="">
+                                        <p>票券</p>
+                                    </el-col>
+                                    <el-col :span="6"><img src="img/class8.png" alt="">
+                                        <p>旅游出行</p>
+                                    </el-col>
+                                </el-row>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="recommend">
+                <span>热门推荐</span>
+                <span>0101</span>
+                <i class="el-icon-more"></i>
+            </div>
+
+            <div class="commodity">
+                <div class="hot">
+                    <el-row>
+                        <el-col :span="24">
+                            <img src="img/hot.png" alt="">
+                            <span>热点商品</span>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="12">
+                            <p>休闲零食</p>
+                            <p>最低30元起</p>
+                        </el-col>
+                        <el-col :span="12">
+                            <p>新鲜水果</p>
+                            <p>活动特价9.9元起</p>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="6">
+                            <p>管道疏通</p>
+                            <p>9.9元起</p>
+                            <img src="img/gifta.png" alt="">
+                        </el-col>
+                        <el-col :span="6">
+                            <p>灯具开关</p>
+                            <p>9.9元起</p>
+                            <img src="img/giftb.png" alt="">
+                        </el-col>
+                        <el-col :span="6">
+                            <p>龙头管件</p>
+                            <p>9.9元起</p>
+                            <img src="img/giftc.png" alt="">
+                        </el-col>
+                        <el-col :span="6">
+                            <p>门窗家具</p>
+                            <p>50元起</p>
+                            <img src="img/giftd.png" alt="">
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-card v-for="item in shops">
+                    <img :src="item.url" alt="">
+                    <div class="fr">
+                        <p>{{item.uname}}</p>
+                        <p><span>立减5元</span> 退货包运费 急速退款</p>
+                        <p><span>￥{{item.money}}</span> 已售1.5万</p>
+                    </div>
+                </el-card>
+            </div>
+        </div>
+
+
+
+        <div v-show="bottom[1].flag">
+
+            <div class="classification-top">
+                <i class="el-icon-arrow-left"></i>
+                <span>商品分类</span>
+                <i class="iconfont">&#xe603;</i>
+                <i class="el-icon-more"></i>
+            </div>
+
+            <div class="navigation">
+                <div class="navigation-left">
+                    <div class="nav-dan" :class="{navOpen:item.flag}" v-for="item in nav"
+                        @click="displayFlag(nav , item)">
+                        <p>{{item.uname}}</p>
+                    </div>
+                </div>
+
+                <div class="navigation-main" v-for="item in nav" v-show="item.flag">
+                    <div>
+                        <p>排行榜</p>
+                    </div>
+                    <div class="nav-tuijian-img">
+                        <img src="img/tuijian.png" alt="">
+                        <p class="zh">点击查看夏季排行榜</p>
+                        <p class="en">Click to view the summer leaderboard</p>
+                    </div>
+                    <div>
+                        <p>{{item.uname}}</p>
+                    </div>
+                    <div class="nav-zhu">
+                        <div v-for="o in 9">
+                            <img :src="'img/shoes'+o+'.png'" alt="">
+                            <p>{{nav[o+1].uname}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div v-show="bottom[2].flag">
+            <div class="shop">
+                <div class="shop-top classification-top">
+                    <i class="el-icon-arrow-left"></i>
+                    <span>商品分类</span>
+                    <i class="iconfont">&#xe603;</i>
+                    <i class="el-icon-more"></i>
+                    <div>
+                        <p>{{shops.length}}</p>
+                    </div>
+                </div>
+                <div class="shop-main">
+
+                    <div class="shop-main-dan" v-for="(item,index) in shops">
+                        <div class="shop-main-button">
+                            <span :class="{open:item.select}" @click="select(index)"><i class="el-icon-check"></i></span>
+                        </div>
+                        <div class="shop-main-img">
+                            <img :src="item.url" alt="">
+                        </div>
+                        <div class="shop-main-p">
+                            <p>{{item.uname}}</p>
+                            <p>{{item.style}}</p>
+                            <div class="shop-main-money">
+                                <span :class="{shanchu:item.moneyless}">￥:{{item.money}}</span>
+                                <span v-if="item.moneyless">￥:{{item.moneyless}}</span>
+                            </div>
+                        </div>
+                        <div class="shop-main-num">
+                            <p class="reduce" @click="reduceShop(index)">-</p>
+                            <p class="num">{{item.number}}</p>
+                            <p class="add" @click="addShop(index)">+</p>
+                        </div>
+                    </div>
+
+                    <div class="shop-buttom">
+                        <div class="fl" :class="{open:allSelectState}" @click="allSelect"><i class="el-icon-check"></i>
+                        </div>
+                        <div class="fl">{{selectState}}</div>
+                        <div class="fl">合计：</div>
+                        <div class="fl">{{ addAllMoney }}</div>
+                        <div class="shop-buttom-set">
+                            <p>结算</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div v-show="bottom[3].flag">
+
+            <div class="me">
+                <span class="me-top-setting">
+                    <i class="el-icon-setting"></i>
+                </span>
+                <div class="me-avatar">
+                    <el-avatar>
+                        <img src="img/me-avatar.png" alt="">
+                    </el-avatar>
+                </div>
+                <p class="me-name">用户名</p>
+                <div class="me-collection">
+                    <el-row>
+                        <el-col :span="12">
+                            <p>我的收藏</p>
+                            <p>434</p>
+                        </el-col>
+                        <el-col :span="12">
+                            <p>关注店铺</p>
+                            <p>122</p>
+                        </el-col>
+                    </el-row>
+                </div>
+                <p class="me-allorder">全部订单<br>1234</p>
+            </div>
+
+            <div class="vip">
+                <img src="img/vip.png" class="fl" alt="">
+                <div class="fl">
+                    <span>平台会员</span>
+                    <span>一年只要88</span>
+                    <p>用大约40项会员特权</p>
+                </div>
+            </div>
+
+            <div class="order">
+                <div>
+                    <p>我的订单</p>
+                    <p>全部订单</p>
+                </div>
+                <div>
+                    <el-row>
+                        <el-col :span="6" v-for="(item,index) in ['待付款','待发货','待收货','待评价']">
+                            <div>
+                                <img :src="'img/order'+(index+1)+'.png'" alt="">
+                                <p>{{index}}</p>
+                            </div>
+                            <p>{{item}}</p>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+
+            <div class="setting">
+                <div v-for="(item,index) in ['我的钱包','优惠券','收藏夹','收货地址']">
+                    <img :src="'img/me-list'+(index+1)+'.png'" alt="">
+                    <span>{{item}}</span>
+                    <i class="el-icon-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="bottom">
+            <el-row>
+                <el-col :span="6" v-for="item in bottom">
+                    <a href="javascript:void(0);" :class="{open:item.flag}" @click="displayFlag(bottom,item)">
+                        <i class="iconfont" v-html="item.flag?item.icon:item.noicon"></i>
+                        <p>{{item.uname}}</p>
+                    </a>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
+</body>
+
+</html>

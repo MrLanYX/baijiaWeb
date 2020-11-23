@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>活动页面</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+        // 确定rem的值
+        document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        window.onresize = function () {
+            document.querySelector("html").style.fontSize = window.screen.width / 20 + 'px'
+        }
+        // 判断当前设备是否移动端
+        //获取屏幕尺寸
+        if (/phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(navigator.userAgent)) {
+            //如果是移动端，不执行；否则，跳转到PC端对应的页面
+            // window.location.href = 'sign.html';
+        } else {
+            // window.location.href = 'indexpc.html';
+        }
+    </script>
+    <!-- 引入element UI样式 -->
+    <link rel="stylesheet" href="css/element-index.css">
+    <!-- 导入swiper的css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- 导入自己的css样式 -->
+    <link rel="stylesheet" href="css/activity.css">
+
+    <!-- 引入Vue库 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入element UI js库-->
+    <script src="js/element-index.js"></script>
+    <!-- 导入swiper的js库 -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- 导入自己的js -->
+    <script src="js/activity.js"></script>
+</head>
+<body>
+    <div class="activity">
+        <div class="header">
+            <el-page-header @back="back" content="活动红包"></el-page-header>
+        </div>
+        <p class="zh">限时领红包</p>
+        <p class="en">Each person is limited to 3</p>
+        <button>我要领红包</button>
+        <p class="rule">活动规则</p>
+        <p>1.活动结束权归设计方所有。<br> 2. 活动结束权归设计方所有，活动结束权归设计方所有，<br> 活动结束权归设计方所有</p>
+    </div>
+</body>
+</html>
