@@ -326,26 +326,32 @@ a {
     margin-top: 15px;
     font-size: 0.7rem;
 }
-.el-card__body{
+
+.el-card__body {
     padding: 0.5rem;
 }
-.el-card__body img{
+
+.el-card__body img {
     width: 7rem;
     height: 7rem;
 }
-.el-card__body div{
+
+.el-card__body div {
     margin-left: 0.5rem;
     width: 10rem;
 }
-.el-card__body div p:nth-child(1){
+
+.el-card__body div p:nth-child(1) {
     height: 5rem;
 }
-.el-card__body div p:nth-child(2),.el-card__body div p:nth-child(3){
+
+.el-card__body div p:nth-child(2), .el-card__body div p:nth-child(3) {
     height: 1rem;
     font-size: 0.4rem;
     color: #555;
 }
-.el-card__body div p:nth-child(2) span,.el-card__body div p:nth-child(3) span{
+
+.el-card__body div p:nth-child(2) span, .el-card__body div p:nth-child(3) span {
     font-size: 0.7rem;
     color: red;
 }
